@@ -1,4 +1,10 @@
 .list-item {
+  height: 64px;
+  border-bottom: 1px solid $border_color;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
   &__name {
     display: flex;
     align-items: center;

@@ -7,9 +7,11 @@ const ListItem: FC = () => {
       <td width={63}>
         <Checkbox/>
       </td>
-      <td width={467} className="list-item__name">
-        <img src="https://www.coalitionrc.com/wp-content/uploads/2018/10/placeholder.jpg" alt=""/>
-        <span>Lindsey Stroud</span>
+      <td width={467}>
+        <div className="list-item__name">
+          <img src="https://www.coalitionrc.com/wp-content/uploads/2018/10/placeholder.jpg" alt=""/>
+          <span>Lindsey Stroud</span>
+        </div>
       </td>
       <td width={234}>
         lindsey.stroud@gmail.com
