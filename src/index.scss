@@ -3,3 +3,31 @@
   margin: 0;
   bottom: 0;
 }
+
+$table_black: #323C47;
+$table_gray: #707683;
+$dark_blue: #334D6E;
+$white: #fff;
+$gray: #90A0B7;
+$text_helper: #818E9B;
+$checkbox_empty: #D5D5D5;
+$border_color: #EBEFF2;
+$img_hover: #192A3E;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: $table_gray;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@import "./pages/listPage/listPage";
+@import "./pages/userPage/userPage";
+@import "./components/searchbar/searchbar";
+@import "./components/list/list";
+@import "./components/list/item/listItem";
+@import "./components/userInfo/userInfo";
