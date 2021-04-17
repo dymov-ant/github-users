@@ -1,0 +1,22 @@
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  & input[type="checkbox"] {
+    display: none;
+    &:checked + span {
+      background-color: $dark_blue;
+      border: 2px solid $dark_blue;
+    }
+    & + span {
+      display: inline-block;
+      position: relative;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $checkbox_empty;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+  }
+}

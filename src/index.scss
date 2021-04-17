@@ -21,12 +21,13 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1469px;
   margin: 0 auto;
 }
 
 @import "./pages/listPage/listPage";
 @import "./pages/userPage/userPage";
+@import "./components/checkbox/checkbox";
 @import "./components/searchbar/searchbar";
 @import "./components/list/list";
 @import "./components/list/item/listItem";
