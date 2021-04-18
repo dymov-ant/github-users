@@ -4,7 +4,7 @@
   bottom: 0;
 }
 
-$table_black: #323C47;
+$table_black: #323c47;
 $table_gray: #707683;
 $dark_blue: #334D6E;
 $white: #fff;
@@ -12,7 +12,7 @@ $gray: #90A0B7;
 $text_helper: #818E9B;
 $checkbox_empty: #D5D5D5;
 $border_color: #EBEFF2;
-$img_hover: #192A3E;
+$black: #192A3E;
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -33,3 +33,4 @@ body {
 @import "./components/list/list";
 @import "./components/list/item/listItem";
 @import "./components/userInfo/userInfo";
+@import "./components/userInfo/avatar/avatar";

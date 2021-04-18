@@ -1,0 +1,39 @@
+.user-info {
+  display: flex;
+  align-items: flex-start;
+  &__avatar {
+    flex: 0 0 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-right: 68px;
+    overflow: hidden;
+  }
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 18px;
+    margin-bottom: 122px;
+  }
+  &__item {
+    flex: 0 0 435px;
+  }
+}
+
+.info-item {
+  &__title {
+    color: $text_helper;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+  }
+  &__text {
+    color: $table_black;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    margin-bottom: 35px;
+  }
+}
