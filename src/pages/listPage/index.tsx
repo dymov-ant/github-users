@@ -6,7 +6,7 @@ const ListPage: FC = () => {
   return (
     <div className="list-page">
       <Searchbar/>
-      <List/>
+      <List variant="users"/>
     </div>
   )
 }
