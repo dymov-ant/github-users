@@ -57,7 +57,7 @@ export type ActionsThunkType = ThunkAction<Promise<void>, TState, unknown, Actio
 export const getUsers = (q: string, page = 1): ActionsThunkType => async dispatch => {
   dispatch(setIsLoading(true))
   try {
-    const res = await axios.get<IResponseSearchUser>(`${BASE_URL}search/users?q=${q}&per_page=20&page${page}`)
+    const res = await axios.get<IResponseSearchUser>(`${BASE_URL}search/users?q=${q}&per_page=10&page=${page}`)
     if (res.status === 200) {
       const userNames = res.data.items.map(item => item.login)
       const requests = userNames.map(login => axios.get<TUser>(`${BASE_URL}users/${login}`))

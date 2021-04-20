@@ -1,28 +1,16 @@
-import React, {FC, useEffect} from "react"
+import React, {FC} from "react"
 import List from "../../components/list"
 import Searchbar from "../../components/searchbar"
-import {useDispatch, useSelector} from "react-redux"
-import {getUsers} from "../../redux/actions"
+import {useSelector} from "react-redux"
 import {TState} from "../../redux/store"
 
-
 const ListPage: FC = () => {
-  const dispatch = useDispatch()
-  const isLoading = useSelector((state: TState) => state.isLoading)
-
-  useEffect(() => {
-    dispatch(getUsers("dy"))
-    console.log("eff")
-  }, [dispatch])
-
-  if (isLoading) {
-    return <h1>Загрузка</h1>
-  }
+  const usersCount = useSelector((state: TState) => state.users.length)
 
   return (
     <div className="list-page">
       <Searchbar/>
-      <List variant="users"/>
+      {usersCount > 0 && <List variant="users"/>}
     </div>
   )
 }

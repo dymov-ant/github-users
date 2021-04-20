@@ -6,7 +6,6 @@ export function dateAgo(date: string) {
   const msDay = msHour * 24
 
   const elapsed = new Date().valueOf() - new Date(date).valueOf()
-  console.log(elapsed)
 
   if (elapsed < msMinute) {
     return Math.round(elapsed / 1000) + " Seconds ago"

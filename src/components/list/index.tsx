@@ -29,8 +29,8 @@ const List: FC<IListProps> = ({variant,}) => {
         <tbody>
         {
           variant === "users"
-            ? users.map(item => <ListItem type="user" item={item}/>)
-            : repos.map(item => <ListItem type="repo" item={item}/>)
+            ? users.map(item => <ListItem type="user" item={item} key={item.login}/>)
+            : repos.map(item => <ListItem type="repo" item={item} key={item.name}/>)
         }
         </tbody>
       </table>

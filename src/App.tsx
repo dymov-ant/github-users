@@ -9,7 +9,7 @@ function App() {
     <div className="container">
       <Switch>
         <Route path={LIST_ROUTE} component={ListPage} exact/>
-        <Route path={USER_ROUTE} component={UserPage} exact/>
+        <Route path={USER_ROUTE + "/:login"} component={UserPage} exact/>
         <Redirect to={LIST_ROUTE}/>
       </Switch>
     </div>
