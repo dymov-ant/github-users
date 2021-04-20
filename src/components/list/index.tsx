@@ -1,13 +1,16 @@
 import React, {FC} from "react"
 import Checkbox from "../checkbox"
-import {IVariantList} from "../../types/types"
+import {useSelector} from "react-redux"
+import {TState} from "../../redux/store"
+import ListItem from "./item"
 
-// import {useSelector} from "react-redux"
-// import {TState} from "../../redux/store"
+interface IListProps {
+  variant: "users" | "repos"
+}
 
-const List: FC<IVariantList> = ({variant,}) => {
-  // const users = useSelector((state: TState) => state.users)
-  // const repos =  useSelector((state: TState) => state.activeUser?.repos)
+const List: FC<IListProps> = ({variant,}) => {
+  const users = useSelector((state: TState) => state.users)
+  const repos = useSelector((state: TState) => state.repos)
 
   return (
     <div>
@@ -18,19 +21,17 @@ const List: FC<IVariantList> = ({variant,}) => {
           <th>{variant === "users" ? "Имя" : "Название"}</th>
           {variant === "users" && <th>Email</th>}
           <th>Имя компании</th>
-          <th>{variant === "users" ? "Роль" : "Автор"}</th>
-          <th>Активность</th>
-          <th>{variant === "users" ? "Дата регистрации" : "Последний коммит"}</th>
+          <th>{variant === "users" ? "Подписчики" : "Автор"}</th>
+          <th>{variant === "users" ? "Местоположение" : "Язык"}</th>
+          <th>{variant === "users" ? "Дата регистрации" : "Последний пуш"}</th>
         </tr>
         </thead>
         <tbody>
         {
-          // variant === "users"
-          //   ? users.map(item => <ListItem variant="users" {...item} key={item.name}/>)
-          //   // : repos && repos.map(item => <ListItem variant="projects" key={item.name} {...item}/>)
-          //   : null
+          variant === "users"
+            ? users.map(item => <ListItem type="user" item={item}/>)
+            : repos.map(item => <ListItem type="repo" item={item}/>)
         }
-        {/*{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => <ListItem  variant={variant} key={item}/>)}*/}
         </tbody>
       </table>
     </div>

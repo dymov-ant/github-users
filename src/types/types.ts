@@ -1,11 +1,7 @@
 import {SET_ERROR, SET_IS_LOADING, INC_PAGE, SET_REPOS, SET_USERS, SET_ACTIVE_USER} from "../utilits/constants"
 import {components} from "@octokit/openapi-types"
 
-export interface IVariantList {
-  variant: "users" | "projects"
-}
-
-export type TUser = components["schemas"]["user-search-result-item"]
+export type TUser = components["schemas"]["public-user"]
 export type TSearchUser = components["schemas"]["user-search-result-item"]
 export type TRepo = components["schemas"]["repository"]
 

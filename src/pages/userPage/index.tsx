@@ -16,7 +16,7 @@ const UserPage: FC = () => {
         <UserInfo/>
       </div>
       <h2 className="user-page__title">Список проектов</h2>
-      <List variant="projects"/>
+      <List variant="repos"/>
     </div>
   )
 }
