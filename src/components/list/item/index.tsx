@@ -1,10 +1,29 @@
 import React, {FC} from "react"
 import {useHistory} from "react-router-dom"
 import Checkbox from "../../checkbox"
-import {IVariantList} from "../../../types/common"
 import {USER_ROUTE} from "../../../utilits/constants"
+import {IVariantList} from "../../../types/types"
 
-const ListItem: FC<IVariantList> = ({variant}) => {
+interface IListItemProps {
+  avatar: string
+  name: string
+  email?: string | null
+  organization: string
+  role?: string
+  activity: number
+  createdAt?: string
+}
+
+const ListItem: FC<IListItemProps & IVariantList> = ({
+                                                       email,
+                                                       avatar,
+                                                       activity,
+                                                       createdAt,
+                                                       name,
+                                                       organization,
+                                                       role,
+                                                       variant
+                                                     }) => {
   const history = useHistory()
 
   const handleRowClick = () => {
@@ -16,32 +35,33 @@ const ListItem: FC<IVariantList> = ({variant}) => {
 
   return (
     <tr className="list-item">
-      <td width={63} onClick={() => {}}>
+      <td width={63} onClick={() => {
+      }}>
         <Checkbox/>
       </td>
       <td width={467} onClick={handleRowClick}>
         <div className="list-item__name">
-          <img src="https://www.coalitionrc.com/wp-content/uploads/2018/10/placeholder.jpg" alt=""/>
-          <span>Название</span>
+          <img src={avatar} alt=""/>
+          <span>{name}</span>
         </div>
       </td>
       {
         variant === "users"
         && <td width={234} onClick={handleRowClick}>
-          lindsey.stroud@gmail.com
+          {email || "Email не указан"}
         </td>
       }
       <td width={144} onClick={handleRowClick}>
-        Hatchbuck
+        {organization}
       </td>
       <td width={143} onClick={handleRowClick}>
-        Manager
+        {role || "Не указано"}
       </td>
       <td width={276} onClick={handleRowClick}>
-        50 %
+        {activity}
       </td>
       <td width={140} align="center" onClick={handleRowClick}>
-        5 Minutes ago
+        {createdAt}
       </td>
     </tr>
   )

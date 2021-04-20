@@ -1,9 +1,14 @@
 import React, {FC} from "react"
-import ListItem from "./item"
 import Checkbox from "../checkbox"
-import {IVariantList} from "../../types/common"
+import {IVariantList} from "../../types/types"
 
-const List: FC<IVariantList> = ({variant}) => {
+// import {useSelector} from "react-redux"
+// import {TState} from "../../redux/store"
+
+const List: FC<IVariantList> = ({variant,}) => {
+  // const users = useSelector((state: TState) => state.users)
+  // const repos =  useSelector((state: TState) => state.activeUser?.repos)
+
   return (
     <div>
       <table className="table">
@@ -19,7 +24,13 @@ const List: FC<IVariantList> = ({variant}) => {
         </tr>
         </thead>
         <tbody>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => <ListItem variant={variant} key={item}/>)}
+        {
+          // variant === "users"
+          //   ? users.map(item => <ListItem variant="users" {...item} key={item.name}/>)
+          //   // : repos && repos.map(item => <ListItem variant="projects" key={item.name} {...item}/>)
+          //   : null
+        }
+        {/*{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => <ListItem  variant={variant} key={item}/>)}*/}
         </tbody>
       </table>
     </div>
