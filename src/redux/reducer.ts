@@ -1,5 +1,16 @@
 import {ActionsType, TRepo, TUser} from "../types/types"
-import {INC_PAGE, SET_ACTIVE_USER, SET_ERROR, SET_IS_LOADING, SET_REPOS, SET_USERS} from "../utilits/constants"
+import {
+  CLEAR_USERS,
+  INC_PAGE,
+  REQUEST_ACTIVE_USER,
+  SET_ACTIVE_USER,
+  SET_ERROR,
+  SET_IS_LOADING,
+  SET_IS_SHOW_MORE,
+  SET_Q,
+  SET_REPOS,
+  SET_USERS
+} from "../utilits/constants"
 
 interface IState {
   users: TUser[]
@@ -8,6 +19,8 @@ interface IState {
   isError: boolean
   isLoading: boolean
   page: number
+  q: string
+  isShowMore: boolean
   repos: TRepo[]
 }
 
@@ -18,6 +31,8 @@ const initialState: IState = {
   isLoading: false,
   isError: false,
   page: 1,
+  q: "",
+  isShowMore: true,
   repos: []
 }
 
@@ -39,15 +54,36 @@ export const reducer = (state = initialState, action: ActionsType) => {
         ...state,
         page: state.page + 1
       }
+    case SET_Q:
+      return {
+        ...state,
+        q: action.q
+      }
+    case SET_IS_SHOW_MORE:
+      return {
+        ...state,
+        isShowMore: action.isShowMore
+      }
+    case CLEAR_USERS:
+      return {
+        ...state,
+        page: 1,
+        users: []
+      }
     case SET_USERS:
       return {
         ...state,
-        users: action.users
+        users: [...state.users, ...action.users]
       }
     case SET_ACTIVE_USER:
       return {
         ...state,
         activeUser: state.users.find(user => user.login === action.login)
+      }
+    case REQUEST_ACTIVE_USER:
+      return {
+        ...state,
+        activeUser: action.user
       }
     case SET_REPOS:
       return {

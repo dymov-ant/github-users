@@ -20,7 +20,8 @@ const List: FC<IListProps> = ({variant,}) => {
           <th><Checkbox/></th>
           <th>{variant === "users" ? "Имя" : "Название"}</th>
           {variant === "users" && <th>Email</th>}
-          <th>Имя компании</th>
+          {/*<th>Имя компании</th>*/}
+          <th>{variant === "users" ? "Имя компании" : "Количество звезд"}</th>
           <th>{variant === "users" ? "Подписчики" : "Автор"}</th>
           <th>{variant === "users" ? "Местоположение" : "Язык"}</th>
           <th>{variant === "users" ? "Дата регистрации" : "Последний пуш"}</th>
@@ -29,8 +30,8 @@ const List: FC<IListProps> = ({variant,}) => {
         <tbody>
         {
           variant === "users"
-            ? users.map(item => <ListItem type="user" item={item} key={item.login}/>)
-            : repos.map(item => <ListItem type="repo" item={item} key={item.name}/>)
+            ? users.map(item => <ListItem type="user" item={item} key={item.id}/>)
+            : repos.map(item => <ListItem type="repo" item={item} key={item.id}/>)
         }
         </tbody>
       </table>

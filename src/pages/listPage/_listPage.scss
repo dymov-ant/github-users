@@ -4,4 +4,9 @@
   &__searchbar {
     margin-bottom: 12px;
   }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+  }
 }

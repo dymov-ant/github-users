@@ -1,12 +1,16 @@
 import React, {FC} from "react"
 import imgHover from "./image.svg"
 
-const Avatar: FC = () => {
+interface IAvatarProps {
+  src: string
+}
+
+const Avatar: FC<IAvatarProps> = ({src}) => {
   return (
     <div className="avatar">
       <img
         className="main-img"
-        src="https://www.coalitionrc.com/wp-content/uploads/2018/10/placeholder.jpg"
+        src={src}
         alt=""
       />
       <img
