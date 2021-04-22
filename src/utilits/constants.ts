@@ -1,4 +1,4 @@
-export const GITHUB_TOKEN = "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" // без авторизации за 1 час доступно только 60 запросов к api, с токеном будет доступно 5000
+export const GITHUB_TOKEN = "" // без авторизации за 1 час доступно только 60 запросов к api, с токеном будет доступно 5000
 
 export const LIST_ROUTE = "/"
 export const USER_ROUTE = "/user"

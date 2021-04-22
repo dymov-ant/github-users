@@ -11,6 +11,7 @@ interface IListProps {
 const List: FC<IListProps> = ({variant,}) => {
   const users = useSelector((state: TState) => state.users)
   const repos = useSelector((state: TState) => state.repos)
+
   return (
     <div>
       <table className="table">
