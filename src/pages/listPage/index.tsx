@@ -12,26 +12,24 @@ const ListPage: FC = () => {
   const q = useSelector((state: TState) => state.q)
   const page = useSelector((state: TState) => state.page)
   const isShowMore = useSelector((state: TState) => state.isShowMore)
+  const isLoading = useSelector((state: TState) => state.isLoading)
 
   const loadUsersHandler = () => {
     dispatch(getUsers(q, page + 1))
     dispatch(incPage())
   }
 
-  console.log(usersCount, isShowMore)
-
   return (
     <div className="list-page">
       <Searchbar/>
       {usersCount > 0 && <List variant="users"/>}
-      <Spinner/>
+      {isLoading && <Spinner/>}
       {
         (usersCount > 0 && isShowMore)
           && <div className="list-page__btn">
-          <button className="btn" onClick={loadUsersHandler}>Показать еще</button>
+          <button className="btn" onClick={loadUsersHandler} disabled={isLoading}>Показать еще</button>
         </div>
       }
-
     </div>
   )
 }

@@ -1,12 +1,13 @@
 import {
+  CLEAR_USERS,
+  INC_PAGE,
+  SET_ACTIVE_USER,
   SET_ERROR,
   SET_IS_LOADING,
-  INC_PAGE,
-  SET_REPOS,
-  SET_USERS,
-  SET_ACTIVE_USER,
+  SET_IS_SHOW_MORE,
   SET_Q,
-  SET_IS_SHOW_MORE, CLEAR_USERS, REQUEST_ACTIVE_USER
+  SET_REPOS,
+  SET_USERS
 } from "../utilits/constants"
 import {components} from "@octokit/openapi-types"
 
@@ -54,11 +55,6 @@ export interface ISetUsers {
 
 export interface ISetActiveUser {
   type: typeof SET_ACTIVE_USER
-  login: string
-}
-
-export interface IRequestActiveUser {
-  type: typeof REQUEST_ACTIVE_USER
   user: TUser
 }
 
@@ -76,5 +72,4 @@ export type ActionsType =
   | IClearUsers
   | ISetUsers
   | ISetActiveUser
-  | IRequestActiveUser
   | ISetRepos

@@ -11,7 +11,6 @@ interface IListProps {
 const List: FC<IListProps> = ({variant,}) => {
   const users = useSelector((state: TState) => state.users)
   const repos = useSelector((state: TState) => state.repos)
-
   return (
     <div>
       <table className="table">
@@ -20,7 +19,6 @@ const List: FC<IListProps> = ({variant,}) => {
           <th><Checkbox/></th>
           <th>{variant === "users" ? "Имя" : "Название"}</th>
           {variant === "users" && <th>Email</th>}
-          {/*<th>Имя компании</th>*/}
           <th>{variant === "users" ? "Имя компании" : "Количество звезд"}</th>
           <th>{variant === "users" ? "Подписчики" : "Автор"}</th>
           <th>{variant === "users" ? "Местоположение" : "Язык"}</th>

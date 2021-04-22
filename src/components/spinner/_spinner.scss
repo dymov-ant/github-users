@@ -1,5 +1,82 @@
 .spinner {
-  font-size: 15px;
-  text-align: center;
-  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 100%;
+  height: 100%;
+}
+@keyframes ldio-dfol8r4dntg {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.ldio-dfol8r4dntg div {
+  box-sizing: border-box !important
+}
+
+.ldio-dfol8r4dntg > div {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  top: 22px;
+  left: 22px;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #85a2b6 transparent #85a2b6 transparent;
+  animation: ldio-dfol8r4dntg 1s linear infinite;
+}
+
+.ldio-dfol8r4dntg > div:nth-child(2) {
+  border-color: transparent
+}
+
+.ldio-dfol8r4dntg > div:nth-child(2) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+
+.ldio-dfol8r4dntg > div:nth-child(2) div:before, .ldio-dfol8r4dntg > div:nth-child(2) div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 16px;
+  background: #85a2b6;
+  border-radius: 50%;
+  box-shadow: 0 48px 0 0 #85a2b6;
+}
+
+.ldio-dfol8r4dntg > div:nth-child(2) div:after {
+  left: -8px;
+  top: 16px;
+  box-shadow: 48px 0 0 0 #85a2b6;
+}
+
+.loadingio-spinner-dual-ring-n32or3rsctj {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.ldio-dfol8r4dntg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.44);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+
+.ldio-dfol8r4dntg div {
+  box-sizing: content-box;
 }

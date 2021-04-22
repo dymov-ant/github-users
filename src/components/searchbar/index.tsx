@@ -1,24 +1,22 @@
-import React, {ChangeEvent, FC, useEffect, useState} from "react"
+import React, {ChangeEvent, FC, useEffect} from "react"
 import searchIcon from "./searchIcon.svg"
 import {useDebounce} from "../../utilits/useDebounce"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {clearUsers, getUsers, setQ} from "../../redux/actions"
+import {TState} from "../../redux/store"
 
 const Searchbar: FC = () => {
   const dispatch = useDispatch()
-  const [value, setValue] = useState("")
-  const debouncedTerm = useDebounce(value, 1000)
-
+  const q = useSelector((state: TState) => state.q)
+  const debouncedTerm = useDebounce(q, 1000)
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
+    dispatch(setQ(event.target.value))
   }
-  
+
   useEffect(() => {
-    // dispatch(clearUsers())
     if (debouncedTerm) {
       dispatch(clearUsers())
-      dispatch(setQ(debouncedTerm))
       dispatch(getUsers(debouncedTerm))
     }
   }, [debouncedTerm, dispatch])
@@ -28,11 +26,12 @@ const Searchbar: FC = () => {
       <div className="searchbar list-page__searchbar">
         <img className="searchbar__img" src={searchIcon} alt=""/>
         <input
+          autoFocus
           className="searchbar__input"
           type="text"
           placeholder="Поиск пользователя GIthub"
           onChange={changeHandler}
-          value={value}
+          value={q}
         />
       </div>
     </>

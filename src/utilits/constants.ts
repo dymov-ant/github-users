@@ -1,4 +1,4 @@
-export const GITHUB_TOKEN = "" // без авторизации за 1 час доступно только 60 запросов к api, с токеном будет доступно 5000
+export const GITHUB_TOKEN = "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" // без авторизации за 1 час доступно только 60 запросов к api, с токеном будет доступно 5000
 
 export const LIST_ROUTE = "/"
 export const USER_ROUTE = "/user"
@@ -13,7 +13,6 @@ export const SET_Q = "SET_Q"
 export const CLEAR_USERS = "CLEAR_USERS"
 export const SET_IS_SHOW_MORE = "SET_IS_SHOW_MORE"
 export const SET_ACTIVE_USER = "SET_ACTIVE_USER"
-export const REQUEST_ACTIVE_USER = "REQUEST_ACTIVE_USER"
 export const SET_REPOS = "SET_REPOS"
 
 export const PER_PAGE = 10

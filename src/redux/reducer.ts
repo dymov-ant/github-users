@@ -2,7 +2,6 @@ import {ActionsType, TRepo, TUser} from "../types/types"
 import {
   CLEAR_USERS,
   INC_PAGE,
-  REQUEST_ACTIVE_USER,
   SET_ACTIVE_USER,
   SET_ERROR,
   SET_IS_LOADING,
@@ -76,11 +75,6 @@ export const reducer = (state = initialState, action: ActionsType) => {
         users: [...state.users, ...action.users]
       }
     case SET_ACTIVE_USER:
-      return {
-        ...state,
-        activeUser: state.users.find(user => user.login === action.login)
-      }
-    case REQUEST_ACTIVE_USER:
       return {
         ...state,
         activeUser: action.user

@@ -36,6 +36,13 @@ body {
   border-radius: 10px;
   padding: 10px 15px;
   transition: background-color 0.3s;
+  &:disabled {
+    background-color: $checkbox_empty;
+    &:hover {
+      cursor: wait;
+      background-color: $checkbox_empty;
+    }
+  }
   &:hover {
     background-color: $table_black;
   }

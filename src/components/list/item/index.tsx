@@ -4,8 +4,6 @@ import Checkbox from "../../checkbox"
 import {USER_ROUTE} from "../../../utilits/constants"
 import {useHistory} from "react-router-dom"
 import {dateAgo} from "../../../utilits/dateAgo"
-import {useDispatch} from "react-redux"
-import {setActiveUser} from "../../../redux/actions"
 
 interface IUserProps {
   type: "user"
@@ -19,11 +17,9 @@ interface IRepoProps {
 
 const ListItem: FC<IUserProps | IRepoProps> = (props) => {
   const history = useHistory()
-  const dispatch = useDispatch()
 
   const onRowClick = () => {
     if (props.type === "user") {
-      dispatch(setActiveUser(props.item.login))
       history.push(USER_ROUTE + `/${props.item.login}`)
     }
   }

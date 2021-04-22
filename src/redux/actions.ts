@@ -4,7 +4,6 @@ import {
   ActionsType,
   IClearUsers,
   IIncPage,
-  IRequestActiveUser,
   IResponseSearchUser,
   ISetActiveUser,
   ISetError,
@@ -23,7 +22,6 @@ import {
   GITHUB_TOKEN,
   INC_PAGE,
   PER_PAGE,
-  REQUEST_ACTIVE_USER,
   SET_ACTIVE_USER,
   SET_ERROR,
   SET_IS_LOADING,
@@ -66,13 +64,8 @@ const setIsShowMore = (isShowMore: boolean): ISetIsShowMore => ({
   isShowMore
 })
 
-export const setActiveUser = (login: string): ISetActiveUser => ({
+export const setActiveUser = (user: TUser): ISetActiveUser => ({
   type: SET_ACTIVE_USER,
-  login
-})
-
-const requestActiveUser = (user: TUser): IRequestActiveUser => ({
-  type: REQUEST_ACTIVE_USER,
   user
 })
 
@@ -99,44 +92,33 @@ export const getUsers = (q: string, page = 1): ActionsThunkType => async dispatc
       const users = responses.map(user => user.data)
       dispatch(setUsers(users))
     }
+    dispatch(setIsLoading(false))
   } catch (e) {
     const message = e.response.data.message
     if (message) {
       dispatch(setError(e))
     }
-  } finally {
     dispatch(setIsLoading(false))
   }
 }
 
 export const getActiveUser = (login: string): ActionsThunkType => async dispatch => {
+  dispatch(setIsLoading(true))
   try {
     const res = await axios.get<TUser>(`${BASE_URL}users/${login}`, {headers})
     if (res.status === 200) {
-      dispatch(requestActiveUser(res.data))
+      dispatch(setActiveUser(res.data))
+      const resRepos = await axios.get<TRepo[]>(`${BASE_URL}users/${login}/repos`, {headers})
+      if (resRepos.status === 200) {
+        dispatch(setRepos(resRepos.data))
+      }
     }
-  } catch (e) {
-    const message = e.response.data.message
-    if (message) {
-      dispatch(setError(e))
-    }
-  } finally {
     dispatch(setIsLoading(false))
-  }
-}
-
-export const getRepos = (login: string): ActionsThunkType => async dispatch => {
-  try {
-    const res = await axios.get<TRepo[]>(`${BASE_URL}users/${login}/repos`, {headers})
-    if (res.status === 200) {
-      dispatch(setRepos(res.data))
-    }
   } catch (e) {
     const message = e.response.data.message
     if (message) {
       dispatch(setError(e))
     }
-  } finally {
     dispatch(setIsLoading(false))
   }
 }
