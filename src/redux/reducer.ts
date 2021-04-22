@@ -70,12 +70,9 @@ export const reducer = (state = initialState, action: ActionsType) => {
         users: []
       }
     case SET_USERS:
-      const arr = [...state.users, ...action.users]
-      console.log(arr)
       return {
         ...state,
-        // users: [...state.users, ...action.users]
-        users: arr
+        users: [...state.users, ...action.users]
       }
     case SET_ACTIVE_USER:
       return {
